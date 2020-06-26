@@ -4,6 +4,7 @@ public class HelloWorld {
         System.out.println("Karolina");
         System.out.println(26);
         System.out.print('N');
+
     }
 
 }
