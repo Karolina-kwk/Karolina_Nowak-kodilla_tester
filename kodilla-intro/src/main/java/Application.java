@@ -17,7 +17,7 @@ class Person {
         this.height = height;
     }
 
-    public void checkAge(){
+    public void checkNameAndAge(){
         if(this.name != null){
             if(this.getAge() > 30 && this.getHeight() > 160){
                 System.out.println("User is older than 30 and higher then 160cm");
