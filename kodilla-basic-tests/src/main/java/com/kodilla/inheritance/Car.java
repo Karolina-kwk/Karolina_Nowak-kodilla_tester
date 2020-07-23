@@ -18,6 +18,7 @@ public class Car {
         System.out.println("Opening 4 doors");
     }
     public int getWheels() {
+
         return wheels;
     }
     public int getSeats() {
