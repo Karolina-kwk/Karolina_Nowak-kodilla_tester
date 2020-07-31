@@ -21,14 +21,17 @@ public class CarsApplication {
     public static Car drawCar() {
         Random random = new Random();
         int drawCarKind = random.nextInt(3);
-        int a = random.nextInt() * 100;
-        int b = random.nextInt() * 100;
-        int c = random.nextInt() * 100;
+        Car randomCar = new Nissan(100);
+
         if (drawCarKind == 0)
-            return new Nissan(a);
+            randomCar = new Opel(100);
         else if (drawCarKind == 1)
-            return new Toyota(b);
+            randomCar = new Toyota(120);
         else
-            return new Opel(c);
+            randomCar = new Opel(140);
+
+        for(int i=0; i < random.nextInt(4); i++)
+            randomCar.getDecreaseSpeed();
+        return randomCar;
     }
 }

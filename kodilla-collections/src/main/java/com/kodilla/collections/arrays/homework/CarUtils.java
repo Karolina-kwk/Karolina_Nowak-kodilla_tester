@@ -22,6 +22,6 @@ public class CarUtils {
         else if (car instanceof Opel)
             return "Opel";
         else
-            return "Unknow car name";
+            return "Unknown car name";
     }
 }
