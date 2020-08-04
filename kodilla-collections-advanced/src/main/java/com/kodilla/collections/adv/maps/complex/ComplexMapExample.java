@@ -1,6 +1,5 @@
 package com.kodilla.collections.adv.maps.complex;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
