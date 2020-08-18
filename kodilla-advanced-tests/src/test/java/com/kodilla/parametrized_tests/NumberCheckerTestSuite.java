@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class NumberCheckerTestSuite {
+public class NumberCheckerTestSuite {
 
     private NumberChecker numberChecker = new NumberChecker();
 
@@ -23,5 +23,4 @@ class NumberCheckerTestSuite {
         boolean result = numberChecker.isDivisibleByThree(number);
         assertFalse(result);
     }
-
 }
