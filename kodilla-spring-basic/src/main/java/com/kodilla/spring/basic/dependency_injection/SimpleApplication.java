@@ -2,7 +2,7 @@ package com.kodilla.spring.basic.dependency_injection;
 
 public class SimpleApplication {
 
-    private MessageService messageService = new MessageService();
+    private MessageService messageService = new FacebookMessageService();
 
     public SimpleApplication(MessageService messageService) {
         this.messageService = messageService;
