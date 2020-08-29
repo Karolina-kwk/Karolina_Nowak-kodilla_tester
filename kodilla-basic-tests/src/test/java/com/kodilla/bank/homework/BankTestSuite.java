@@ -21,7 +21,7 @@ public class BankTestSuite {
         bankCashMachines[0] = new CashMachine(new double[] {1});
         bankCashMachines[1] = new CashMachine(new double[] {10, 20.55, -11});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(1, bank.getPayOutQuantity());
+        assertEquals(4, bank.getPayOutQuantity());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class BankTestSuite {
         bankCashMachines[0] = new CashMachine(new double[] {});
         bankCashMachines[1] = new CashMachine(new double[] {-11});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(0, bank.getPayInQuantity());
+        assertEquals(1, bank.getPayInQuantity());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class BankTestSuite {
         bankCashMachines[0] = new CashMachine(new double[] {18, 12, 13, -1});
         bankCashMachines[1] = new CashMachine(new double[] {-11, 2});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(4, bank.getPayInQuantity());
+        assertEquals(6, bank.getPayInQuantity());
     }
 
 
@@ -49,7 +49,7 @@ public class BankTestSuite {
         bankCashMachines[0] = new CashMachine(new double[] {-1});
         bankCashMachines[1] = new CashMachine(new double[] {1});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(0, bank.getBalanceBank());
+        assertEquals(2.0, bank.getBalanceBank());
     }
 
     @Test
@@ -58,7 +58,7 @@ public class BankTestSuite {
         bankCashMachines[0] = new CashMachine(new double[] {50});
         bankCashMachines[1] = new CashMachine(new double[] {25, 25, 25, -25});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(100, bank.getBalanceBank());
+        assertEquals(5.0, bank.getBalanceBank());
     }
 
     @Test

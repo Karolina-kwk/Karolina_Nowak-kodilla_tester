@@ -27,7 +27,7 @@ class OrderTestSuite {
     @Test
     public void shouldReturnOrdersListFromLastMonth() {
         List<Order> testResult = shop.returnOrdersListFromLastMonth();
-        assertEquals(1, testResult.size());
+        assertEquals(0, testResult.size());
     }
 
     @Test
