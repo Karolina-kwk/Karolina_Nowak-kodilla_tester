@@ -24,15 +24,15 @@ public class BookDto {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if ( this == o ) return true;
+        if ( !(o instanceof BookDto) ) return false;
         BookDto bookDto = (BookDto) o;
-        return Objects.equals(title, bookDto.title) &&
-                Objects.equals(author, bookDto.author);
+        return Objects.equals(getTitle(), bookDto.getTitle()) &&
+                Objects.equals(getAuthor(), bookDto.getAuthor());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, author);
+        return Objects.hash(getTitle(), getAuthor());
     }
 }
