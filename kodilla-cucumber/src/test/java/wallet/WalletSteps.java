@@ -10,8 +10,8 @@ public class WalletSteps implements En {
 
     public WalletSteps() {
         Given("I have deposited $200 in my wallet", () -> {
-            wallet.deposit(170);
-            Assert.assertEquals("Incorrect wallet balance", 170, wallet.getBalance());
+            wallet.deposit(200);
+            Assert.assertEquals("Incorrect wallet balance", 200, wallet.getBalance());
         });
 
         Given("I have deposited $0 in my wallet", () -> {
