@@ -6,7 +6,7 @@ import org.junit.Assert;
 public class WalletSteps implements En {
     private Wallet wallet = new Wallet();
     private CashSlot cashSlot = new CashSlot();
-    private Teller teller = new Teller(cashSlot);
+    private Cashier cashier = new Cashier(cashSlot);
 
     public WalletSteps() {
         Given("I have deposited $200 in my wallet", () -> {
@@ -19,19 +19,19 @@ public class WalletSteps implements En {
         });
 
         When("I request $30", () -> {
-            teller.withdraw(wallet, 30);
+            cashier.withdraw(wallet, 30);
         });
 
         When("I request $200", () -> {
-            teller.withdraw(wallet, 200);
+            cashier.withdraw(wallet, 200);
         });
 
         When("I request $201", () -> {
-            teller.withdraw(wallet, 201);
+            cashier.withdraw(wallet, 201);
         });
 
         When("I request $0", () -> {
-            teller.withdraw(wallet, 0);
+            cashier.withdraw(wallet, 0);
         });
 
         Then("$30 should be dispensed", () -> {
