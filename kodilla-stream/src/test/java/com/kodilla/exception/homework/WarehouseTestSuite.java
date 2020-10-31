@@ -1,28 +1,44 @@
 package com.kodilla.exception.homework;
 
-import junit.framework.TestCase;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class WarehouseTestSuite extends TestCase {
+
+public class WarehouseTestSuite {
+
 
     @Test
-    public void testGetOrder() throws OrderDoesntExistException {
-        //given
+    public void testAddOrder_returnsCorrectOrdersCount(){
+        // given
         Warehouse warehouse = new Warehouse();
-        warehouse.addOrder(new Order("sp/36"));
-        //when
-        Order orderResult = warehouse.getOrder("sp/36");
-        //then
-        assertEquals(new Order("sp/36"), orderResult);
+        // when
+        warehouse.addOrder(new Order("123456"));
+        // then
+        assertEquals(1, warehouse.ordersCount());
     }
 
     @Test
-    public void testGetOrder_withException() throws OrderDoesntExistException {
-        //given
+    public void testAddOrder_returnsCorrectOrderObject() throws OrderDoesntExistException {
+        // given
         Warehouse warehouse = new Warehouse();
-        warehouse.addOrder(new Order("kn/36"));
-        //when
-        Order orderResult = warehouse.getOrder("kn/36");
+        // when
+        warehouse.addOrder(new Order("123456"));
+        Order actualOrder = warehouse.getOrder("123456");
+        // then
+        Order expectedOrder = new Order("123456");
+        assertEquals(expectedOrder, actualOrder );
+    }
+
+
+
+    @Test(expected = OrderDoesntExistException.class)
+    public void testFindOrder_throwsException() throws OrderDoesntExistException {
+        // given
+        Warehouse warehouse = new Warehouse();
+        // when
+        warehouse.addOrder(new Order("123456"));
+        // then
+        Order actualOrder = warehouse.getOrder("123456xx");
     }
 
 }

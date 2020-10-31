@@ -4,51 +4,51 @@ package com.kodilla.execution_model.homework;
 import java.time.LocalDate;
 import java.util.Objects;
 
-
 public class Order {
-    private double price;
-    private LocalDate date;
-    private String login;
 
-    public Order(double price, LocalDate date, String login) {
-        this.price = price;
+    private double value;
+    private LocalDate date;
+    private String person;
+
+    public Order(double value, LocalDate date, String person) {
+        this.value = value;
         this.date = date;
-        this.login = login;
+        this.person = person;
     }
 
-    public double getPrice() {
-        return price;
+    public double getValue() {
+        return value;
     }
 
     public LocalDate getDate() {
         return date;
     }
 
-    public String getLogin() {
-        return login;
+    public String getPerson() {
+        return person;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if ( this == o ) return true;
+        if ( !(o instanceof Order) ) return false;
         Order order = (Order) o;
-        return Double.compare(order.price, price) == 0 &&
-                Objects.equals(date, order.date) &&
-                Objects.equals(login, order.login);
+        return Double.compare(order.getValue(), getValue()) == 0 &&
+                Objects.equals(getDate(), order.getDate()) &&
+                Objects.equals(getPerson(), order.getPerson());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, date, login);
+        return Objects.hash(getValue(), getDate(), getPerson());
     }
 
     @Override
     public String toString() {
-        return "Shop{" +
-                "price=" + price +
+        return "Order{" +
+                "value=" + value +
                 ", date=" + date +
-                ", login='" + login + '\'' +
+                ", person='" + person + '\'' +
                 '}';
     }
 }

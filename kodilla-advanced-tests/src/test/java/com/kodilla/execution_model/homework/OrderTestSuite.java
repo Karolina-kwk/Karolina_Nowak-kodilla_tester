@@ -6,17 +6,18 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class OrderTestSuite {
+class ShopTestSuite {
+
     Shop shop = new Shop();
 
     @BeforeEach
     public void dataTransfer() {
-        shop.addOrder(new Order(223.4, LocalDate.of(2020, 7, 5), "Tarka123"));
-        shop.addOrder(new Order(150.5, LocalDate.of(2020, 5, 8), "Tama2"));
-        shop.addOrder(new Order(208.43, LocalDate.of(2020, 6, 15), "Tara54"));
-        shop.addOrder(new Order(302.21, LocalDate.of(2020, 7, 25), "Lulu92"));
+        shop.addOrder(new Order(126.56, LocalDate.of(2020, 6, 5), "Anka93"));
+        shop.addOrder(new Order(349.00, LocalDate.of(2020, 5, 8), "Anka83"));
+        shop.addOrder(new Order(112.16, LocalDate.of(2020, 5, 15), "Anka73"));
+        shop.addOrder(new Order(196.57, LocalDate.of(2020, 3, 25), "Anka63"));
     }
 
     @Test
@@ -25,25 +26,31 @@ class OrderTestSuite {
     }
 
     @Test
-    public void shouldReturnOrdersListFromLastMonth() {
-        List<Order> testResult = shop.returnOrdersListFromLastMonth();
+    public void shouldReturnOrdersListFromLastTwoMonths() {
+        List<Order> testResult = shop.returnOrdersListFromLastTwoMonths();
         assertEquals(0, testResult.size());
     }
 
     @Test
-    public void shouldSumAllOrdersPrice() {
-        double testResult = shop.toSumAllOrdersPrice();
-        assertEquals(884.54, testResult, 0.01);
+    public void shouldGetOrderFromConcreteRangeofValues() {
+        List<Order> testResult = shop.getOrderFromConcreteRangeofValues(100.00, 200.00);
+        assertEquals(3, testResult.size());
     }
 
     @Test
-    public void shouldGetOrdersFromJuly() {
-        List<Order> testResult = shop.getOrdersFromRange(LocalDate.of(2020, 7, 1), LocalDate.of(2020, 7, 31));
+    public void shouldSumAllOrdersValues() {
+        double testResult = shop.toSumAllOrdersValues();
+        assertEquals(784.29, testResult, 0.01);
+    }
+
+    @Test
+    public void shouldGetOrdersFromMay() {
+        List<Order> testResult = shop.getOrdersFromRange(LocalDate.of(2020, 5, 1), LocalDate.of(2020, 5, 31));
         assertEquals(2, testResult.size());
     }
 
     @Test
-    public void shouldGetOrdersFromEmptyRange() {
+    public void shouldgetOrdersFromEmptyRange() {
         List<Order> testResult = shop.getOrdersFromRange(LocalDate.of(2019, 5, 1), LocalDate.of(2019, 5, 31));
         assertEquals(0, testResult.size());
     }

@@ -1,19 +1,35 @@
 package com.kodilla.exception.homework;
 
-public class WarehouseApp {
-    public static void main(String[] args) {
-        Warehouse warehouse = new Warehouse();
-        warehouse.addOrder(new Order("kn/23"));
-        warehouse.addOrder(new Order("zn/65"));
-        warehouse.addOrder(new Order("hn/60"));
-        warehouse.addOrder(new Order("jp/35"));
+import java.sql.SQLOutput;
 
+public class WarehouseApp {
+    public static void main(String[] args) throws OrderDoesntExistException {
+        Order order1 = new Order("A123451");
+        Order order2 = new Order("A123452");
+        Order order3 = new Order("A123453");
+        Order order4 = new Order("A123454");
+
+        Warehouse warehouse = new Warehouse();
+        warehouse.addOrder(order1);
+        warehouse.addOrder(order2);
+        warehouse.addOrder(order3);
+        warehouse.addOrder(order4);
+
+        String findOrderNumber = "A123451";
         try {
-            warehouse.getOrder("zp/2");
-        } catch (OrderDoesntExistException e) {
-            System.out.println("Sorry, your order number does not exist in our system. Please contact Customer Support.");
-        } finally {
-            System.out.println("Thank you for choosing our shop!");
+            Order requiredOrder = warehouse.getOrder(findOrderNumber);
+            System.out.println("Order "+ findOrderNumber +" exists");
+        } catch (OrderDoesntExistException e){
+            System.out.println("Sorry but order" + findOrderNumber +  "does not exists.");
         }
+
+        findOrderNumber ="A123451XY";
+        try {
+            Order requiredOrder = warehouse.getOrder(findOrderNumber);
+            System.out.println("Order "+ findOrderNumber +" exists");
+        } catch (OrderDoesntExistException e){
+            System.out.println("Sorry but order " + findOrderNumber +  " does not exists.");
+        }
+
     }
 }
